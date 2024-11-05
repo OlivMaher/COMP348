@@ -58,11 +58,7 @@ int main(){
         }
         if (selection != 8) {
             cToContinue();
-            #ifdef _WIN32
-                system("cls"); // For Windows
-            #else
-                system("clear"); // For Unix/Linux
-            #endif
+            system("clear"); //Clears the screen
         }
     }
     while (selection != 8);
