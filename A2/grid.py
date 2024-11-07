@@ -21,6 +21,7 @@ class Grid:
     def __init__(self, size):
         self.size = size
         self.cells = self.createGrid()
+        self.minGuess = (size/2)**2
     
     def createGrid(self):
         numberOfPairs = ((self.size**2) //2)
@@ -57,7 +58,8 @@ class Grid:
             for j in range(self.size):
                 self.cells[i][j].hide()
         self.cells = self.createGrid()
-
+    def calculateScore(self, guess):
+        return (self.minGuess/guess)*100
 
 
 

@@ -39,7 +39,7 @@ def uncoverOne(grid):
 def uncoverAll(grid):
     grid.revealAll()
 
-#Implement Score
+#Implement Score & game logic for winning
 def main():
     grid = Grid(4)
     menu(grid)
