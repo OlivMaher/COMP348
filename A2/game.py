@@ -7,7 +7,6 @@ def menu(grid):
     print("--------------------")
     print("|   Brain Buster   |")
     print("--------------------")
-    print("    [A]  [B]  [C]  [D]")
     grid.displayGrid()
     print("\n1. Let me select two elements")
     print("2. Uncover one element for me")
@@ -40,6 +39,7 @@ def uncoverOne(grid):
 def uncoverAll(grid):
     grid.revealAll()
 
+#Implement Score
 def main():
     grid = Grid(4)
     menu(grid)
@@ -53,7 +53,7 @@ def main():
         elif selection == 3:
             uncoverAll(grid)
         elif selection == 4:
-            print(grid.newGrid())
+            grid.newGrid()
         
         os.system("cls")
         menu(grid)

@@ -30,6 +30,8 @@ class Grid:
         return [[Cell(values.pop()) for _ in range(self.size)] for _ in range(self.size)]
     
     def displayGrid(self):
+        column_labels = "     " + "  ".join(f"[{chr(65 + i)}]" for i in range(self.size))
+        print(column_labels)
         i = 0
         for row in self.cells:
             print("["+str(i)+"]".strip()+"   "+"    ".join(str(cell) for cell in row))
@@ -51,11 +53,11 @@ class Grid:
                 self.cells[i][j].reveal()
     
     def newGrid(self):
-        numberOfPairs = ((self.size**2) //2)
-        values = [i for i in range(0, numberOfPairs)] * 2
-        random.shuffle(values)
+        for i in range(self.size):
+            for j in range(self.size):
+                self.cells[i][j].hide()
+        self.cells = self.createGrid()
 
-        return [[Cell(values.pop()) for _ in range(self.size)] for _ in range(self.size)]
 
 
 
