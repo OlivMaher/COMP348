@@ -41,22 +41,35 @@ def uncoverAll(grid):
 
 #Implement Score & game logic for winning
 def main():
-    grid = Grid(4)
+    numOfGuesses = 0
+    grid = Grid(2)
     menu(grid)
     selection = int(input("Select: "))
 
     while selection != 5:
         if selection == 1:
             selectTwo(grid)
+            numOfGuesses += 1
         elif selection == 2:
             uncoverOne(grid)
+            numOfGuesses += 2
         elif selection == 3:
             uncoverAll(grid)
         elif selection == 4:
             grid.newGrid()
+            numOfGuesses = 0
+        
+
         
         os.system("cls")
         menu(grid)
+
+        if grid.isWon():
+            score = grid.calculateScore(numOfGuesses)
+            if score == 0:
+                print("You cheated, your score is zero")
+            else: 
+                print("Congrats you won! Your score is ", score)
         selection = int(input("Select: "))
 
 if __name__ == "__main__":

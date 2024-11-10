@@ -58,8 +58,20 @@ class Grid:
             for j in range(self.size):
                 self.cells[i][j].hide()
         self.cells = self.createGrid()
+
+    def isWon(self):
+        for row in self.cells:
+            for cell in row:
+                if not cell.isRevealed:
+                    return False
+        return True
+
     def calculateScore(self, guess):
+        if guess == 0:
+            return 0
         return (self.minGuess/guess)*100
+    
+
 
 
 
