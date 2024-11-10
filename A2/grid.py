@@ -66,11 +66,22 @@ class Grid:
                     return False
         return True
 
-    def calculateScore(self, guess):
-        if guess == 0:
+    def calculateScore(self, guesses):
+        min_possible_guesses = (self.size * self.size) // 2
+        if guesses == 0:
             return 0
-        return (self.minGuess/guess)*100
+        return int((min_possible_guesses / guesses) * 100)
     
+    def outOfRange(self, column, row):
+        if column >= self.size or row >= self.size:
+            return True
+        return False
+    
+    def isRevealed(self, column, row):
+        cell = self.cells[column][row]
+        return cell.isRevealed()
+
+
 
 
 
