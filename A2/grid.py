@@ -1,6 +1,3 @@
-#Written in OO
-#The grid (and possibly its contents) must be prepresented as an object
-#Contain code for grid content & any game/scoring data. 
 import random
 
 class Cell:
@@ -79,10 +76,4 @@ class Grid:
     
     def isRevealed(self, column, row):
         cell = self.cells[column][row]
-        return cell.isRevealed()
-
-
-
-
-
-
+        return cell.isRevealed
