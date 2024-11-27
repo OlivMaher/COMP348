@@ -2,7 +2,8 @@
 
 (ns fido
   (:require [clojure.string :as str])
-  (:require [clojure.java.io :as io]))
+  (:require [clojure.java.io :as io])
+  (:require [food :as food]))
   ; this is where you would include/require the food module
 
 ;;-------------------
@@ -27,7 +28,7 @@
 (defn option1
   []
   (println "Map List:")
-  (let [root (io/file "C:\\Users\\olima\\dev\\COMP348\\A3\\src\\")
+  (let [root (io/file "../")
         files (file-seq root)
         txt-files (filter #(str/ends-with? (.getName %) ".txt") files)]
     (doseq [file txt-files]
@@ -44,11 +45,12 @@
   (print "\nPlease enter a file name => ") 
   (flush)
   (let [file-name (read-line)
-        file-path (str "C:\\Users\\olima\\dev\\COMP348\\A3\\src\\" file-name)
+        file-path (str "./" file-name)
         file (io/file file-path)]
     (if (and (.exists file) (str/ends-with? file-name ".txt"))
       (do (println "\nThis is Fido's challenge\n")
-          (println (slurp file-name)))
+          (println (slurp file-name))
+          (food/findFood file-name))
       (println "Oops: specified file " file-name "does not exist or is not a .txt file")))
   (do 
     (print "\nPress any key to continue ") 
