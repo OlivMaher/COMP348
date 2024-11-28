@@ -24,7 +24,7 @@
     (not (isOpen x y map)) [false map]
     :else
     (let [map (markPath map x y \+)
-          directions [[0 1] [1 0] [0 -1] [-1 0]]]
+          directions [[0 -1] [1 0] [0 1] [-1 0]]]
       (loop [dirs directions
              map map]
         (if (empty? dirs)

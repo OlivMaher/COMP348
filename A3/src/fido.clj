@@ -70,8 +70,7 @@
      (if( = option "2")
         (option2)   
         (println "Invalid menu option")))
-  ;(print (str (char 27) "[2J")) ) ; Clears screen
-)
+  (print (str (char 27) "[2J")) ) ; Clears screen
 
 ; Display the menu and get a menu item selection. Process the
 ; selection and then loop again to get the next menu selection
